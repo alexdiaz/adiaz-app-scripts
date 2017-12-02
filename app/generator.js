@@ -41,20 +41,20 @@ var Generator;
   // page
 
   async function generatePage() {
-    Utils.mkdir('./pages');
-    Utils.mkdir(`./pages/${name}`);
+    Utils.mkdir('./src/pages');
+    Utils.mkdir(`./src/pages/${name}`);
     // .ts
     let tmpl = await read(`${tmplDir}/page/ts.tmpl`);
-    await write(`./pages/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/pages/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
     // .module.ts
     tmpl = await read(`${tmplDir}/page/module.ts.tmpl`);
-    await write(`./pages/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/pages/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
     // .html
     tmpl = await read(`${tmplDir}/page/html.tmpl`);
-    await write(`./pages/${name}/${name}.html`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/pages/${name}/${name}.html`, Utils.replaceTmpl(tmpl, name));
     // .scss
     tmpl = await read(`${tmplDir}/page/scss.tmpl`);
-    await write(`./pages/${name}/${name}.scss`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/pages/${name}/${name}.scss`, Utils.replaceTmpl(tmpl, name));
     //
     Utils.showSuccess(type, name);
   }
@@ -62,20 +62,20 @@ var Generator;
   // component
 
   async function generateComponent() {
-    Utils.mkdir('./components');
-    Utils.mkdir(`./components/${name}`);
+    Utils.mkdir('./src/components');
+    Utils.mkdir(`./src/components/${name}`);
     // .ts
     let tmpl = await read(`${tmplDir}/component/ts.tmpl`);
-    await write(`./components/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/components/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
     // .module.ts
     tmpl = await read(`${tmplDir}/component/module.ts.tmpl`);
-    await write(`./components/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/components/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
     // .html
     tmpl = await read(`${tmplDir}/component/html.tmpl`);
-    await write(`./components/${name}/${name}.html`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/components/${name}/${name}.html`, Utils.replaceTmpl(tmpl, name));
     // .scss
     tmpl = await read(`${tmplDir}/component/scss.tmpl`);
-    await write(`./components/${name}/${name}.scss`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/components/${name}/${name}.scss`, Utils.replaceTmpl(tmpl, name));
     //
     Utils.showSuccess(type, name);
   }
@@ -83,14 +83,14 @@ var Generator;
   // directive
 
   async function generateDirective() {
-    Utils.mkdir('./directives');
-    Utils.mkdir(`./directives/${name}`);
+    Utils.mkdir('./src/directives');
+    Utils.mkdir(`./src/directives/${name}`);
     // .ts
     let tmpl = await read(`${tmplDir}/directive/ts.tmpl`);
-    await write(`./directives/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/directives/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
     // .module.ts
     tmpl = await read(`${tmplDir}/directive/module.ts.tmpl`);
-    await write(`./directives/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/directives/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
     //
     Utils.showSuccess(type, name);
   }
@@ -98,14 +98,14 @@ var Generator;
   // pipe
 
   async function generatePipe() {
-    Utils.mkdir('./pipes');
-    Utils.mkdir(`./pipes/${name}`);
+    Utils.mkdir('./src/pipes');
+    Utils.mkdir(`./src/pipes/${name}`);
     // .ts
     let tmpl = await read(`${tmplDir}/pipe/ts.tmpl`);
-    await write(`./pipes/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/pipes/${name}/${name}.ts`, Utils.replaceTmpl(tmpl, name));
     // .module.ts
     tmpl = await read(`${tmplDir}/pipe/module.ts.tmpl`);
-    await write(`./pipes/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
+    await write(`./src/pipes/${name}/${name}.module.ts`, Utils.replaceTmpl(tmpl, name));
     //
     Utils.showSuccess(type, name);
   }
