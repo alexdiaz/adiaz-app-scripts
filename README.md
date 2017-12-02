@@ -1,1 +1,1 @@
-# adiaz-app-scripts
+# okode-app-scripts
