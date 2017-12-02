@@ -1,6 +1,19 @@
 #!/usr/bin/env node
 // jshint esversion:6
 
-var fs = require('fs');
+require('./generator');
 
-console.log('Welcome');
+function start(args) {
+  switch (args[2]) {
+    case 'generator':
+      startGenerator(args);
+      return;
+    default: invalidCommand();
+  }
+}
+
+function invalidCommand() {
+  console.log('Invalid command');
+}
+
+start(process.argv);
