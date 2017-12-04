@@ -1,12 +1,9 @@
-#!/usr/bin/env node
-// jshint esversion:6
+import { Generator } from './generator';
 
-require('./generator');
-
-function start(args) {
+function start(args: any) {
   switch (args[2]) {
     case 'generator':
-      startGenerator(args);
+    Generator.init(args);
       return;
     default: invalidCommand();
   }
