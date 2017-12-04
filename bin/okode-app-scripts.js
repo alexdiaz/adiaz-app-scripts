@@ -1,5 +1,3 @@
 #!/usr/bin/env node
 
-require('../dist/index');
-
-start(process.argv);
+require('../dist/index').start(process.argv);
