@@ -4,7 +4,7 @@ var generator_1 = require("./generator");
 function start(args) {
     switch (args[2]) {
         case 'generator':
-            generator_1.Generator.init(args);
+            generator_1.Generator.init(args[3], args[4]);
             return;
         default: invalidCommand();
     }

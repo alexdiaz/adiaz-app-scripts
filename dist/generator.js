@@ -39,18 +39,13 @@ var fs = require("fs");
 // Generator --------------------------------------------------------------------------------------
 var Generator;
 (function (Generator) {
-    function init(args) {
-        if (args.length < 4) {
+    function init(typeParam, nameParam) {
+        type = Utils.isValidType(typeParam) ? typeParam : null;
+        name = nameParam;
+        if (type && name)
+            generate();
+        else
             Utils.showErrorInvalidArgs();
-        }
-        else {
-            type = Utils.isValidType(args[2]) ? args[2] : null;
-            name = args[3].toLowerCase();
-            if (type && name)
-                generate();
-            else
-                Utils.showErrorInvalidArgs();
-        }
     }
     Generator.init = init;
     var fs = require('fs');
@@ -86,33 +81,33 @@ var Generator;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        Utils.mkdir('./pages');
-                        Utils.mkdir("./pages/" + name);
+                        Utils.mkdir('./src/pages');
+                        Utils.mkdir("./src/pages/" + name);
                         return [4 /*yield*/, read(tmplDir + "/page/ts.tmpl")];
                     case 1:
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./pages/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/pages/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
                     case 2:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/page/module.ts.tmpl")];
                     case 3:
                         // .module.ts
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./pages/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/pages/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
                     case 4:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/page/html.tmpl")];
                     case 5:
                         // .html
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./pages/" + name + "/" + name + ".html", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/pages/" + name + "/" + name + ".html", Utils.replaceTmpl(tmpl, name))];
                     case 6:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/page/scss.tmpl")];
                     case 7:
                         // .scss
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./pages/" + name + "/" + name + ".scss", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/pages/" + name + "/" + name + ".scss", Utils.replaceTmpl(tmpl, name))];
                     case 8:
                         _a.sent();
                         //
@@ -129,33 +124,33 @@ var Generator;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        Utils.mkdir('./components');
-                        Utils.mkdir("./components/" + name);
+                        Utils.mkdir('./src/components');
+                        Utils.mkdir("./src/components/" + name);
                         return [4 /*yield*/, read(tmplDir + "/component/ts.tmpl")];
                     case 1:
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./components/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/components/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
                     case 2:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/component/module.ts.tmpl")];
                     case 3:
                         // .module.ts
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./components/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/components/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
                     case 4:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/component/html.tmpl")];
                     case 5:
                         // .html
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./components/" + name + "/" + name + ".html", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/components/" + name + "/" + name + ".html", Utils.replaceTmpl(tmpl, name))];
                     case 6:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/component/scss.tmpl")];
                     case 7:
                         // .scss
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./components/" + name + "/" + name + ".scss", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/components/" + name + "/" + name + ".scss", Utils.replaceTmpl(tmpl, name))];
                     case 8:
                         _a.sent();
                         //
@@ -172,19 +167,19 @@ var Generator;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        Utils.mkdir('./directives');
-                        Utils.mkdir("./directives/" + name);
+                        Utils.mkdir('./src/directives');
+                        Utils.mkdir("./src/directives/" + name);
                         return [4 /*yield*/, read(tmplDir + "/directive/ts.tmpl")];
                     case 1:
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./directives/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/directives/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
                     case 2:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/directive/module.ts.tmpl")];
                     case 3:
                         // .module.ts
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./directives/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/directives/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
                     case 4:
                         _a.sent();
                         //
@@ -201,19 +196,19 @@ var Generator;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        Utils.mkdir('./pipes');
-                        Utils.mkdir("./pipes/" + name);
+                        Utils.mkdir('./src/pipes');
+                        Utils.mkdir("./src/pipes/" + name);
                         return [4 /*yield*/, read(tmplDir + "/pipe/ts.tmpl")];
                     case 1:
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./pipes/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/pipes/" + name + "/" + name + ".ts", Utils.replaceTmpl(tmpl, name))];
                     case 2:
                         _a.sent();
                         return [4 /*yield*/, read(tmplDir + "/pipe/module.ts.tmpl")];
                     case 3:
                         // .module.ts
                         tmpl = _a.sent();
-                        return [4 /*yield*/, write("./pipes/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
+                        return [4 /*yield*/, write("./src/pipes/" + name + "/" + name + ".module.ts", Utils.replaceTmpl(tmpl, name))];
                     case 4:
                         _a.sent();
                         //
