@@ -1,6 +1,6 @@
 import { Generator } from './generator';
 
-function start(args: any) {
+export function start(args: any) {
   switch (args[2]) {
     case 'generator':
     Generator.init(args);
@@ -12,5 +12,3 @@ function start(args: any) {
 function invalidCommand() {
   console.log('Invalid command');
 }
-
-start(process.argv);

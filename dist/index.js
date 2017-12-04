@@ -9,7 +9,7 @@ function start(args) {
         default: invalidCommand();
     }
 }
+exports.start = start;
 function invalidCommand() {
     console.log('Invalid command');
 }
-start(process.argv);
