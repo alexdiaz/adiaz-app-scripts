@@ -2,13 +2,16 @@ import { Generator } from './generator';
 
 export function start(args: any) {
   switch (args[2]) {
-    case 'generator':
+
+    /**
+     * Generator
+     */
+    case 'generator': case '-g':
       Generator.init(args[3], args[4]);
       return;
-    default: invalidCommand();
+
+
+    default: console.log('Invalid command');
   }
 }
 
-function invalidCommand() {
-  console.log('Invalid command');
-}
