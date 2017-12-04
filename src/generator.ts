@@ -15,7 +15,7 @@ export module Generator {
   const util = require('util');
   const read = util.promisify(fs.readFile);
   const write = util.promisify(fs.writeFile);
-  const tmplDir = __dirname + '../assets/templates';
+  const tmplDir = __dirname + '/../assets/templates';
   let type: string;
   let name: string;
 

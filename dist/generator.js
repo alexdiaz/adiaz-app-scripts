@@ -52,7 +52,7 @@ var Generator;
     var util = require('util');
     var read = util.promisify(fs.readFile);
     var write = util.promisify(fs.writeFile);
-    var tmplDir = __dirname + '../assets/templates';
+    var tmplDir = __dirname + '/../assets/templates';
     var type;
     var name;
     function generate() {
