@@ -1,3 +1,5 @@
+Deprecated, moved to https://github.com/okode/okode-app-scripts/tree/develop
+
 # Okode App Scripts
 
 App Build Scripts for Okode Projects
